@@ -1,6 +1,7 @@
 package com.olexandr.finchuk;
 
 import com.olexandr.finchuk.creators.ArrayGenerator;
+import com.olexandr.finchuk.excel.ExcelWorker;
 import com.olexandr.finchuk.reflections.Analyzer;
 
 import java.io.File;
@@ -14,10 +15,13 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        Analyzer analyzer = new Analyzer("src",100);
+       /* Analyzer analyzer = new Analyzer("src",100);
         analyzer.analyzeAllForAll();
         analyzer.setArrSize(10000);
-        analyzer.analyzeAllForAll();
+        analyzer.analyzeAllForAll();*/
+        ExcelWorker worker = new ExcelWorker("worker.xlsx");
+        worker.write("I love Java", 4,3);
+        worker.commit();
 
     }
 

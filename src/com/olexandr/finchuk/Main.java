@@ -3,8 +3,15 @@ package com.olexandr.finchuk;
 import com.olexandr.finchuk.creators.ArrayGenerator;
 import com.olexandr.finchuk.excel.ExcelWorker;
 import com.olexandr.finchuk.reflections.Analyzer;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.charts.*;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -14,14 +21,13 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) {
-       /* Analyzer analyzer = new Analyzer("src",100);
-        analyzer.analyzeAllForAll();
-        analyzer.setArrSize(10000);
-        analyzer.analyzeAllForAll();*/
-        ExcelWorker worker = new ExcelWorker("worker.xlsx");
-        worker.write("I love Java", 4,3);
-        worker.commit();
+    public static void main(String[] args){
+
+          Analyzer analyzer = new Analyzer("src");
+          analyzer.analyzeAllWithExcel(1,10000,100);
+
+
+
 
     }
 
